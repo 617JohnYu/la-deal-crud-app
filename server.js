@@ -6,7 +6,7 @@ require('dotenv').config()
 const port = process.env.PORT || 8080
 
 app.use((req, res) => {
-    res.send('GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG')
+    res.send('GGGGGGGGGGGGGGGGGGGGGGGGGGG')
 })
 
 app.listen(port, () => {
