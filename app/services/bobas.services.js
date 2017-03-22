@@ -10,10 +10,33 @@ function bobasService(options) {
     Boba = options.modelService
 
     return {
-        getAll
+        getAll,
+        insert,
+        getOneById,
+        updateOneById,
+        deleteOneById
     }
 
     function getAll() {
         return Boba.find()
+    }
+
+    function insert(document) {
+        let boba = new Boba(document)
+        return boba.save()
+    }
+
+    function getOneById(queryCondition) {
+        return Boba.findOne(queryCondition)
+    }
+
+    function updateOneById(queryCondition, doc) {
+        return Boba.findOneAndUpdate(queryCondition, doc, {
+            new: true
+        })
+    }
+
+    function deleteOneById(queryCondition) {
+        return Boba.findOneAndRemove(queryCondition)
     }
 }

@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 const bobaSchema = new Schema({
     name: {
         type: String,
-        required: true
+        required: false
     }
 
 })

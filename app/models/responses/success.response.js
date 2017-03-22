@@ -6,7 +6,7 @@ class SuccessResponse extends BaseResponse {
         super()
         this.isSuccessful = true
         this.alert.type = 'success'
-        this.alert.message = 'request successful'
+        this.alert.message = 'YOUR REQUEST IS GUCCI'
     }
 
 }
