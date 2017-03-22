@@ -22,6 +22,8 @@ function bobasService(options) {
     }
 
     function insert(document) {
+        console.log(document)
+        console.log('^^doc^^')
         let boba = new Boba(document)
         return boba.save()
     }

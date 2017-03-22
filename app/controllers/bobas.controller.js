@@ -12,9 +12,9 @@ function bobasController() {
     return {
         getAll,
         insert,
-        updateById,
+        updateOneById,
         getOneById,
-        deleteById
+        deleteOneById
 
     }
 
@@ -30,24 +30,29 @@ function bobasController() {
     }
 
     function insert(req, res) {
-        bobasService.insert()
-            .then((bobas) => {
+        bobasService.insert(req.body)
+         .then((bobas) => {
                 const responseModel = new responses.ItemsResponse()
                 responseModel.items = bobas
-                res.status(201).location(path.join(apiPrefix, hacker._id.toString())).json(responseModel)
+                // res.status(201).location(path.join(apiPrefix, hacker._id.toString())).json(responseModel)
+                res.json(responseModel)
+                console.log(responseModel)
+                console.log('^^responseModel^^^^')
             }).catch((err) => {
                 res.status(500).send(new responses.ErrorResponse(err))
             })
     }
 
-    function updateById(req, res) {
+    function updateOneById(req, res) {
         let queryCondition = {
             _id: req.params.id
         }
-        bobasService.updateById(queryCondition, req.body)
+        bobasService.updateOneById(queryCondition, req.body)
             .then((bobas) => {
                 const responseModel = new responses.ItemsResponse()
                 res.json(responseModel).status(204)
+                console.log(responseModel)
+
             }).catch((err) => {
                 res.status(500).send(new responses.ErrorResponse(err))
             })
@@ -67,11 +72,11 @@ function bobasController() {
             })
     }
 
-    function deleteById(req, res) {
+    function deleteOneById(req, res) {
         let queryCondition = {
             _id: req.params.id
         }
-        bobasService.deleteById(queryCondition)
+        bobasService.deleteOneById(queryCondition)
             .then((bobas) => {
                 const responseModel = new responses.ItemsResponse()
                 responseModel.items = bobas

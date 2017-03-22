@@ -5,5 +5,5 @@ module.exports = router
 router.get('/', bobasController.getAll)
 router.post('/', bobasController.insert)
 router.get('/:id', bobasController.getOneById)
-router.put('/', bobasController.updateById)
-router.delete('/', bobasController.deleteById)
+router.put('/:id', bobasController.updateOneById)
+router.delete('/:id', bobasController.deleteOneById)

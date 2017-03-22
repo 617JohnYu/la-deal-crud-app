@@ -2,9 +2,17 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const bobaSchema = new Schema({
-    name: {
+    title: {
         type: String,
-        required: false
+        required: true
+    },
+    description: {
+        type: String,
+        required: true
+    },
+    number: {
+        type: Number,
+        required: true
     }
 
 })
